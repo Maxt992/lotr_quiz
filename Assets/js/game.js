@@ -1,30 +1,15 @@
-// DECLARE 'timer' number
-
-// DECLARE 'questions' array
-var questions = [
-    {
-        // questions
-        // answers
-        // correct answer
-    },
-    {
-        // questions
-        // answers
-        // correct answer
-    },
-    {
-        // questions
-        // answers
-        // correct answer
-    },
-    // and so on...
-];
-
 // DECLARE the 'timeEl'
 var timeEl = document.getElementById('timer');
 // OR document.querySelector('#timer'); would work || querySelectorAll grabs ALL elements with id tag.
 
+
+let startBtn = document.createElement("button");
+startBtn.innerHTML = "Start Quiz";
+document.body.appendChild(btn);
+
 // Function 'startGame'
+
+function startGame() {
 
     // Hide the start screen
 
@@ -33,6 +18,10 @@ var timeEl = document.getElementById('timer');
     // Set the starting value of 'countdown'
 
     // Start the timer 'startTimer'
+
+}
+
+    
 
 // Function 'answerQuestion'
 
@@ -54,6 +43,12 @@ var timeEl = document.getElementById('timer');
 
 
 // DECLARE 'timer' number
+let totalSeconds = 250;
+let timeRemaining = totalSeconds;
+let secondsElapsed = 0;
+// let currentQuestion = 0;
+let progress = 0;
+
 
 // DECLARE 'questions' array
 
@@ -135,7 +130,7 @@ var questions = [{
         correctAnswer: 2
 }, {
     question: "20: What do the Uruk-Hai of Isengard bear upon their helms?",
-    choices: ["The White Hand of Saruman", "A Flaming Ring on a Black Crest", "The White Tree of Gondor", "The Leaves of Lothlorien"]
+    choices: ["The White Hand of Saruman", "A Flaming Ring on a Black Crest", "The White Tree of Gondor", "The Leaves of Lothlorien"],
         correctAnswer: 0
 }];
 
@@ -237,7 +232,7 @@ function timedCount() {
     if(c == 0) {
         displayScore();
         $('#iTimeShow').html('Quiz Time Completed!');
-        $('#timer')html("You scored: " + correctAnswers + " out of: " + questions.length);
+        $('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
         c= 185;
         $(document).find(".preButton").text("View Answer");
         $(document).find(".nextButton").text("Play Again?");
@@ -336,3 +331,4 @@ function viewResults()
     },3000);
 
 }
+
