@@ -1,12 +1,24 @@
 * {
     font-family: bilbo, cursive;
-    font-size: 17pt;
+    margin: 0;
+    padding: 0;
 }
 
 
 html, body {
+    background: url("/Assets/images/EuKJ.gif") center;
+    background-size: cover;
+    height: 100%;
     height: 100%;
     margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 50px;
+    color: red;
 }
 
 /* Splash Screen */
@@ -54,14 +66,9 @@ html, body {
     font-size: 50pt;
 }
 
-.gif-container {
-    background: url("/Assets/images/EuKJ.gif") center;
-    background-size: cover;
-    height: 100%;
-}
-
 .center_text {
-    padding: 25px;
+    font-size: 25pt;
+    padding: 35px;
     text-align: center;
 }
 
@@ -73,6 +80,83 @@ html, body {
 }
 
 .quizContainer {
+    /* margin-top: 125px; */
+    background-color: gold;
+    opacity: 65%;
+    /* height: 500px; */
+    /* width: 75%;
+    height:75%; */
+    width:80vw;
+    max-width: 80%;
+    height:70vh;
+    box-shadow: 0 0 5px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.score {
+    font-size: large;
+    font-weight: bold;
+}
+
+#user-score {
+    color: #ef9614;
+}
+
+#total-score {
+    color: #f6490f;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn {
+    font-size: large;
+    font-weight: bold;
+    box-shadow: 0 6px 12px -2px rgba(#f27813,.15);
+    background: #ef9614;
+    border-radius: 4px;
+    color: beige;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.btn:hover {
+    color: black;
+    padding: 15px;
+}
+
+.options {
+    padding: 10px;
+    order: 3;
+}
+
+.controls {
+    padding: 10px;
+    order: 4;
+}
+
+.hide {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+.quizGame {
     margin-top: 125px;
     background-color: gold;
     opacity: 65%;
@@ -81,11 +165,6 @@ html, body {
     height:75%;
 }
 
-
-h1 {
-    font-family:'Gabriola', serif;
-    text-align: center;
-}
 ul {
     list-style: none;
 }

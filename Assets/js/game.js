@@ -2,27 +2,314 @@
 var timeEl = document.getElementById('timer');
 // OR document.querySelector('#timer'); would work || querySelectorAll grabs ALL elements with id tag.
 
+const restartBtn = document.getElementById('restart');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const submitBtn = document.getElementById('submit');
+const aBtn = document.getElementById('opt1');
+const bBtn = document.getElementById('opt2');
+const cBtn = document.getElementById('opt3');
+const dBtn = document.getElementById('opt4');
+const userScore = document.getElementById('user-score');
+const questionText = document.getElementById('question-text');
 
-let startBtn = document.createElement("button");
-startBtn.innerHTML = "Start Quiz";
-document.body.appendChild(btn);
+let currentQuestion = 0;
+var score = 0;
+
+// DECLARE 'questions' array
+
+let questions = [{
+    question: "1: What is the name of the fictional setting in which The Lord of the Rings takes place?",
+    answers: [
+        {option:"Narnia", answer:false}, 
+        {option:"Middle Earth", answer:true},
+        {option:"Hogwarts", answer:false}, 
+        {option:"Westeros", answer:false},
+    ]
+}, {
+    question: "2: Who is entrusted with the quest to destroy The One Ring?",
+    answers: [
+        {option:"A Witcher, Geralt of Rivia", answer:false},
+        {option:"A member of the Tribunal, Lord Vivec of Morrowind", answer:false},
+        {option:"A Hobbit, Frodo Baggins of the Shire", answer:true},
+        {option:"The Human Ranger, Minsc of Rasheman alongside his trusty hamster, Boo", answer:false}
+    ]
+}, {
+    question: "3: How many rings of power were made for the Elves, Dwarves, and Men?",
+    answers: [
+        {option:"Three for the Elves, Seven for Dwarves, and Nine for Men", answer:true},
+        {option:"Six for the ELves, Six for the Dwarves, and Six for Men", answer:false},
+        {option:"Trick Question. No Rings were made other than The ONE Ring", answer:false},
+        {option:"One thousand for the army of Elven Warriors, Nineteen-Thousand for the Dwarven Warlords under The Misty Mountain, and the Race of Men were given nothing", answer:false}
+    ]
+}, {
+    question: "4: What is the name of the mountain where the Master Ring was made?",
+    answers: [
+        {option:"Mount Devious", answer:false},
+        {option:"Mount Dreary", answer:false}, 
+        {option:"Mount Death", answer:false}, 
+        {option:"Mount Doom", answer:true},
+    ]
+}, {
+    question: "5: What was the name of Sauron's Fortress in Mordor?",
+    answers: [
+        {option:"Minas Morgul", answer:false}, 
+        {option:"Barad-dûr", answer:true}, 
+        {option:"Orthanc", answer:false}, 
+        {option:"Cirith Ungol", answer:false}
+    ]
+}, {
+    question: "6: What is the name of the bridge that Gandalf destroys in the battle with the Balrog of Moria?",
+    answers: [
+        {option:"The Morgul Bridge", answer:false},
+        {option:"Tharbad", answer:false}, 
+        {option:"The Bridge of Khazad-dûm", answer:true},
+        {option:"The Brandywine Bridge", answer:false}
+    ]
+}, {
+    question: "7: Who owned the Ring of Power until Bilbo Baggins picked it up in the cave?",
+    answers: [
+        {option:"The Witch-King of Angmar", answer:false},
+        {option:"Gollum/Sméagol", answer:true},
+        {option:"The Mouth of Sauron", answer:false},
+        {option:"Boromir of Gondor", answer:false}
+    ]
+}, {
+    question: "8: What was the name of the demonic spider that lived in the caves of Cirith Ungol?",
+    answers: [
+        {option:"Shelob", answer:true}, 
+        {option:"Aragog", answer:false},
+        {option:"Lolth", answer:false}, 
+        {option:"Chaos Witch Quelaag", answer:false}
+    ]
+}, {
+    question: "9: In 'The Lord of the Rings: The Return of the King', which army does Aragorn summon using the Sword of Elendil?",
+    answers: [
+        {option:"The Rohirrim", answer:false},
+        {option:"The Night's Watch", answer:false},
+        {option:"The Army of Darkness", answer:false}, 
+        {option:"The Army of the Dead", answer:true}
+    ]
+}, {
+    question: "10: What does Gollum call the Ring of Power?",
+    answers: [
+        {option:"My Precious", answer:true}, 
+        {option:"My Wedding Band", answer:false}, 
+        {option:"My Only Friendses", answer:false}, 
+        {option:"Sally", answer:false}
+    ]
+}, {
+    question: "11: What group composed the Fellowship of the Ring?",
+    answers: [
+        {option:"Geralt of Rivia, Dandelion the bard, the sorceresses Triss Merigold and Yennefer of Vengerberg, and the dwarf Zoltan Chivay", answer:false}, 
+        {option:"Knight Lautrec of Carim, Andre and Solaire of Astora, Siegmeyer of Catarina, and Patches the Hyena", answer:false},
+        {option:"Frodo Baggins of the Shire, Samwise Gamgee, Meridoc Brandybuck, Peregrin Took, the ranger Aragorn, Boromir of Gondor, Legolas of the Woodland Realm, the dwarf Gimli, and Gandalf the Grey", answer:true}, 
+        {option:"Jon Snow of Winterfell, Tyrion Lannister, Gregor and Sandor 'The Hound' Clegane, Daenerys Targaryen, and Lord Eddard Stark", answer:false}
+    ]
+}, {
+    question: "12: What is the name of the reforged version of the 'sword that was broken'?",
+    answers: [
+        {option:"Sting, the Spider's Bane", answer:false}, 
+        {option:"Glamdring, the Foe-Hammer", answer:false},
+        {option:"Andúril, the Flame of the West", answer:true}, 
+        {option:"Orcrist, the Goblin-Cleaver", answer:false}
+    ]
+}, {
+    question: "13: What does Aragorn say right before charging into the last battle in Mordor?",
+    answers: [
+        {option:"'DEATH!'", answer:false}, 
+        {option:"'For Frodo!'", answer:true}, 
+        {option:"'I'll kill everyone one of you damned dirty orcs!'", answer:false}, {option:"'Elendil!'", answer:false}
+    ]
+}, {
+    question: "14: Who is Isildur's heir, also heir to the throne of Gondor, and known as 'Strider' and 'Dunadan'?",
+    answers: [
+        {option:"Boromir of Gondor", answer:false},
+        {option:"Aragorn, son of Arathorn", answer:true}, 
+        {option:"Samwise Gamgee, Frodo's gardener", answer:false},
+        {option:"The humble student, Maxwell, on of Leland", answer:false}
+    ]
+}, {
+    question: "15: What are potatoes, and what are they good for?",
+    answers: [
+        {option:"Absolutely nothing", answer:false},
+        {option:"A root vegetable; they have plenty of uses", answer:false},
+        {option:"'PO-TA-TOES? Boil 'em, mash 'em, stick 'em in a stew. Lovely big golden chips with a nice piece of fried fish.", answers:true},
+        {option:"A tuber, generally cooked until soft and prepared as a side dish", answer:false}]
+}, {
+    question: "16: Which is NOT one of Gandalf's many nicknames?",
+    answers: [
+        {option:"The Grey Pilgrim", answer:false}, 
+        {option:"Gandalf Greyhame", answer:false},
+        {option:"Gandalf Stormcrow", answer:false}, 
+        {option:"Flame of Udun", answer:true}
+    ]
+}, {
+    question: "17: What does the Elvish word 'Mellon' mean?",
+    answers: [
+        {option:"Friend", answer:true},
+        {option:"Watermelon", answer:false}, 
+        {option:"Lord of the Woodland Realm", answer:false}, 
+        {option:"A measurement of distance, '...as the crow flies'", answer:false}
+    ] 
+}, {
+    question: "18: What unusual property does Frodo notice about the Ring?",
+    answers: [
+        {option:"It makes his ring finger swell up", answer:false}, 
+        {option:"It grows heavier", answer:true},
+        {option:"He can see long distances when peering through it", answer:false}, 
+        {option:"It makes Samwise find him particularly attractive", answer:false}
+    ]
+}, {
+    question: "19: Where are they taking the Hobbits?",
+    answers: [
+        {option:"Fangorn Forest", answer:false}, 
+        {option:"The Lands Between", answer:false}, 
+        {option:"Isengard", answer:true}, 
+        {option:"Rohan", answer:false}
+    ]
+}, {
+    question: "20: What do the Uruk-Hai of Isengard bear upon their helms?",
+    answers: [
+        {option:"The White Hand of Saruman", answer:true}, 
+        {option:"A Flaming Ring on a Black Crest", answer:false},
+        {option:"The White Tree of Gondor", answer:false}, 
+        {option:"The Leaves of Lothlorien", answer:false}
+    ]
+}]
+
+restartBtn.addEventListener('click',restart);
+prevBtn.addEventListener('click',prev);
+nextBtn.addEventListener('click',next);
+submitBtn.addEventListener('click',submit);
 
 // Function 'startGame'
 
-function startGame() {
+function beginQuiz() {
 
-    // Hide the start screen
-
-    // Display the first question
-
-    // Set the starting value of 'countdown'
-
-    // Start the timer 'startTimer'
-
+    currentQuestion = 0;
+    questionText.innerHTML = questions[currentQuestion].question;
+    trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
+    trueBtn.onclick = () => {
+        let ano= 0;
+        if (questions[currentQuestion].answers[ano].answer){
+            if(score<20){
+                score++;
+            }
+        }
+        userScore.innerHTML = score;
+        if(currentQuestion<2){
+            next();
+        }
+    }
+    falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
+    falseBtn.onclick = () => {
+        let ano= 1;
+        if(questions[currentQuestion].answers[ano].answer){
+            if(score<20){
+                next();
+            }
+        }
+    }    
+    prevBtn.classList.add('hide');
 }
 
-    
+beginQuiz();
 
+function restart() {
+    currentQuestion = 0;
+    prevBtn.classList.remove('hide');
+    nextBtn.classList.remove('hide');
+    submitBtn.classList.remove('hide');
+    aBtn.classList.remove('hide');
+    bBtn.classList.remove('hide'); 
+    cBtn.classList.remove('hide');
+    dBtn.classList.remove('hide');
+    score = 0;
+    userScore.innerHTML = score;
+    beginQuiz();
+} 
+    
+function next(){
+    currentQuestion++;
+    if(currentQuestion>=2){
+        nextBtn.classList.add('hide');
+        prevBtn.classList.remove('hide');
+    }
+    questionText.innerHTML = questions[currentQuestion].question;
+    trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
+    trueBtn.onclick = () => {
+        let ano= 0;
+        if(questions[currentQuestion].answers[ano].answers){
+            if(score<20){
+                score++;
+            }
+        }
+        userScore.innerHTML = score;
+        if(currentQuestion<2){
+            next();
+        }
+    }
+    falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
+    falseBtn.onclick = () => {
+        let ano=1;
+        if(questions[currentQuestion].answers[ano].answer){
+            if(score<20){
+                score++;
+            }
+        }
+        userScore.innerHTML = score;
+        if(currentQuestion<2){
+            next();
+        }
+    }
+    prev.classList.remove('hide');
+}
+
+function prev(){
+    currentQuestion--;
+    if(currentQuestion<=2){
+        nextBtn.classList.add('hide');
+        prevBtn.classList.remove('hide');
+    }
+    questionText.innerHTML = questions[currentQuestion].question;
+    trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
+    trueBtn.onclick = () => {
+        let ano= 0;
+        if(questions[currentQuestion].answers[ano].answers){
+            if(score<20){
+                score++;
+            }
+        }
+        userScore.innerHTML = score;
+        if(currentQuestion<2){
+            next();
+        }
+    }
+    falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
+    falseBtn.onclick = () => {
+        let ano=1;
+        if(questions[currentQuestion].answers[ano].answer){
+            if(score<20){
+                score++;
+            }
+        }
+        userScore.innerHTML = score;
+        if(currentQuestion<2){
+            next();
+        }
+    }
+    next.classList.remove('hide');
+}
+
+function submit() {
+    prevBtn.classList.add('hide');
+    nextBtn.classList .add('hide');
+    submitBtn.classList.add('hide');
+    trueBtn.classList.add('hide');
+    falseBtn.classList.add('hide');
+    questionText.innerHTML = "Let us see whether or not you shall pass...";
+}
 // Function 'answerQuestion'
 
     // Check if the selected answer is correct
@@ -50,285 +337,203 @@ let secondsElapsed = 0;
 let progress = 0;
 
 
-// DECLARE 'questions' array
-
-var questions = [{
-    question: "1: What is the name of the fictional setting in which The Lord of the Rings takes place?",
-    choices: ["Narnia", "Middle Earth", "Hogwarts", "Westeros"],
-        correctAnswer: 1
-}, {
-    question: "2: Who is entrusted with the quest to destroy The One Ring?",
-    choices: ["A Witcher, Geralt of Rivia", "A member of the Tribunal, Vivec of Morrowind", "A Hobbit, Frodo Baggins of the Shire", "The Human Ranger, Minsc of Rasheman alongside his trusty hamster, Boo"],
-        correctAnswer: 2
-}, {
-    question: "3: How many rings of power were made for the Elves, Dwarves, and Men?",
-    choices: ["Three for the Elves, Seven for Dwarves, and Nine for Men", "Six for the ELves, Six for the Dwarves, and Six for Men", "Trick Question. No Rings were made other than The ONE Ring", "One thousand for the army of Elven Warriors, Nineteen-Thousand for the Dwarven Warlords under The Misty Mountain, and the Race of Men were given nothing"],
-        correctAnswer: 0
-}, {
-    question: "4: What is the name of the mountain where the Master Ring was made?",
-    choices: ["Mount Devious", "Mount Dreary", "Mount Death", "Mount Doom"],
-        correctAnswer: 3
-}, {
-    question: "5: What was the name of Sauron's Fortress in Mordor?",
-    choices: ["Minas Morgul", "Barad-dûr", "Orthanc", "Cirith Ungol"],
-        correctAnswer: 1
-}, {
-    question: "6: What is the name of the bridge that Gandalf destroys in the battle with the Balrog of Moria?",
-    choices: ["The Morgul Bridge", "Tharbad", "The Bridge of Khazad-dûm", "The Brandywine Bridge"],
-        correctAnswer: 2
-}, {
-    question: "7: Who owned the Ring of Power until Bilbo Baggins picked it up in the cave?",
-    choices: ["The Witch-King of Angmar", "Gollum/Sméagol", "The Mouth of Sauron", "Boromir of Gondor"],
-        correctAnswer: 1
-}, {
-    question: "8: What was the name of the demonic spider that lived in the caves of Cirith Ungol?",
-    choices: ["Shelob", "Aragog", "Lolth", "Chaos Witch Quelaag"],
-        correctAnswer: 0
-}, {
-    question: "9: In 'The Lord of the Rings: The Return of the King', which army does Aragorn summon using the Sword of Elendil?",
-    choices: ["The Rohirrim", "The Night's Watch", "The Army of Darkness", "The Army of the Dead"],
-        correctAnswer: 3
-}, {
-    question: "10: What does Gollum call the Ring of Power?",
-    choices: ["My Precious", "My Treasure", "My Only Friendses", "Sally"],
-        correctAnswer: 0
-}, {
-    question: "11: What group composed the Fellowship of the Ring?",
-    choices: ["Geralt of Rivia, Dandelion the bard, the sorceresses Triss Merigold and Yennefer of Vengerberg, and the dwarf Zoltan Chivay", "Knight Lautrec of Carim, Andre and Solaire of Astora, Siegmeyer of Catarina, and Patches the Hyena", "Frodo Baggins of the Shire, Samwise Gamgee, Meridoc Brandybuck, Peregrin Took, the ranger Aragorn, Boromir of Gondor, Legolas of the Woodland Realm, the dwarf Gimli, and Gandalf the Grey", "Jon Snow of Winterfell, Tyrion Lannister, Gregor and Sandor 'The Hound' Clegane, Daenerys Targaryen, and Lord Eddard Stark"],
-        correctAnswer: 2 
-}, {
-    question: "12: What is the name of the reforged version of the 'sword that was broken'?",
-    choices: ["Sting, the Spider's Bane", "Glamdring, the Foe-Hammer", "Andúril, the Flame of the West", "Orcrist, the Goblin-Cleaver"],
-        correctAnswer: 2
-}, {
-    question: "13: What does Aragorn say right before charging into the last battle in Mordor?",
-    choices: ["'DEATH!'", "'For Frodo!'", "'I'll kill everyone one of you damned dirty orcs!'", "'Elendil!'"],
-        correctAnswer: 1
-}, {
-    question: "14: Who is Isildur's heir, also heir to the throne of Gondor, and known as 'Strider' and 'Dunadan'?",
-    choices: ["Boromir of Gondor", "Aragorn, son of Arathorn", "Samwise Gamgee, Fordo's gardener", "The Reader. We were the hero all along."],
-        correctAnswer: 1
-}, {
-    question: "15: What are potatoes, and what are they good for?",
-    choices: ["Absolutely nothing", "A root vegetable, they have plenty of uses", "'PO-TA-TOES? Boil 'em, mash 'em, stick 'em in a stew. Lovely big golden chips with a nice piece of fried fish.", "A tuber, generally cooked until soft and prepared as a side dish"],
-        correctAnswer: 2
-}, {
-    question: "16: Which is NOT one of Gandalf's many nicknames?",
-    choices: ["The Grey Pilgrim", "Gandalf Greyhame", "Gandalf Stormcrow", "Flame of Udun"],
-        correctAnswer: 3
-}, {
-    question: "17: What does the Elvish word 'Mellon' mean?",
-    choices: ["Friend", "Watermelon", "King of the Woodland Realm", "A measurement of distance, '...as the crow flies'"],
-        correctAnswer: 0 
-}, {
-    question: "18: What unusual property does Frodo notice about the Ring?",
-    choices: ["It makes his ring finger swell up", "It grows heavier", "He can see long distances when peering through it", "It gives him super-Hobbit strength"],
-        correctAnswer: 1
-}, {
-    question: "19: Where are they taking the Hobbits?",
-    choices: ["Fangorn Forest", "The Lands Between", "Isengard", "Rohan"],
-        correctAnswer: 2
-}, {
-    question: "20: What do the Uruk-Hai of Isengard bear upon their helms?",
-    choices: ["The White Hand of Saruman", "A Flaming Ring on a Black Crest", "The White Tree of Gondor", "The Leaves of Lothlorien"],
-        correctAnswer: 0
-}];
-
-var currentQuestion = 0;
-var viewingAns = 0;
-var correctAnswers = 0;
-var quizOver = false;
-var iSelectedAnswer = [];
-    var c = 180;
-    var t;
 
 
-$(document).ready(function() {
-    displayCurrentQuestion();
-    $(this).find(".quizMessage").hide();
-    $(this).find(".preButton").attr('disabled', 'disabled');
+// var currentQuestion = 0;
+// var viewingAns = 0;
+// var correctAnswers = 0;
+// var quizOver = false;
+// var iSelectedAnswer = [];
+//     var c = 180;
+//     var t;
 
-    timedCount();
 
-    $(this).find(".preButton").on("click", function () {
-        if (!quizOver) {
-            if(currentQuestion == 0) {return false;}
+// $(document).ready(function() {
+//     displayCurrentQuestion();
+//     $(this).find(".quizMessage").hide();
+//     $(this).find(".preButton").attr('disabled', 'disabled');
 
-            if(currentQuestion == 1) {
-                $(".preButton").attr('disabled', 'disabled');
-            }
+//     timedCount();
 
-            currentQuestion--;
-            if (currentQuestion < questions.length) {
-                displayCurrentQuestion();
-            }
-        } else {
-            if(viewingAns == 3) {return false; }
-            currentQuestion = 0; viewingAns = 3;
-            viewResults();
-        }
-    });
+//     $(this).find(".preButton").on("click", function () {
+//         if (!quizOver) {
+//             if(currentQuestion == 0) {return false;}
 
-    $(this).find(".nextButton").on("click", function () {
-        if (!quizOver) {
-            var val = $("input[type='radio']:checked").val();
+//             if(currentQuestion == 1) {
+//                 $(".preButton").attr('disabled', 'disabled');
+//             }
 
-            if (val == undefined) {
-                $(document).find(".quizMessage").text("Please select an answer");
-                $(document).find(".quizMessage").show();
-            } else {
-                $(document).find(".quizMessage").hide();
-                if (val == question[currentQuestion].correctAnswer) {
-                    correctAnswers++;
-                }
-                iSelectedAnswer[currentQuestion] = val;
+//             currentQuestion--;
+//             if (currentQuestion < questions.length) {
+//                 displayCurrentQuestion();
+//             }
+//         } else {
+//             if(viewingAns == 3) {return false; }
+//             currentQuestion = 0; viewingAns = 3;
+//             viewResults();
+//         }
+//     });
 
-                currentQuestion++;
+//     $(this).find(".nextButton").on("click", function () {
+//         if (!quizOver) {
+//             var val = $("input[type='radio']:checked").val();
 
-                if(currentQuestion >= 1) {
-                    $('.preButton').prop("disabled", false);
-                }
+//             if (val == undefined) {
+//                 $(document).find(".quizMessage").text("Please select an answer");
+//                 $(document).find(".quizMessage").show();
+//             } else {
+//                 $(document).find(".quizMessage").hide();
+//                 if (val == question[currentQuestion].correctAnswer) {
+//                     correctAnswers++;
+//                 }
+//                 iSelectedAnswer[currentQuestion] = val;
 
-                if(currentQuestion < questions.length) {
-                    displayCurrentQuestion();
-                } else {
-                    displayScore();
-                    $('#iTimeShow').html('Quiz Time Completed!');
-                    $('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
-                    c = 185;
-                    $(document).find(".preButton").text("View Answer");
-                    $(document).find(".nextButton").text("Play Again?");
-                    quizOver = true;
-                    return false;
-            }
-        }
-    } else {
-        quizOver = false; $('#iTimeShow').html('Time Remaining:');
-        iSelectedAnswer = [];
-        $(document).find(".nextButton").text("Next Question");
-        $(document).find(".preButton").text("Previous Question");
-            $(".preButton").attr('disabled', 'disabled');
-        resetQuiz();
-        viewingAns = 1;
-        displayCurrentQuestion();
-        hideScore();
-    } 
-    });
-});
+//                 currentQuestion++;
+
+//                 if(currentQuestion >= 1) {
+//                     $('.preButton').prop("disabled", false);
+//                 }
+
+//                 if(currentQuestion < questions.length) {
+//                     displayCurrentQuestion();
+//                 } else {
+//                     displayScore();
+//                     $('#iTimeShow').html('Quiz Time Completed!');
+//                     $('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
+//                     c = 185;
+//                     $(document).find(".preButton").text("View Answer");
+//                     $(document).find(".nextButton").text("Play Again?");
+//                     quizOver = true;
+//                     return false;
+//             }
+//         }
+//     } else {
+//         quizOver = false; $('#iTimeShow').html('Time Remaining:');
+//         iSelectedAnswer = [];
+//         $(document).find(".nextButton").text("Next Question");
+//         $(document).find(".preButton").text("Previous Question");
+//             $(".preButton").attr('disabled', 'disabled');
+//         resetQuiz();
+//         viewingAns = 1;
+//         displayCurrentQuestion();
+//         hideScore();
+//     } 
+//     });
+// });
 
 
 
-function timedCount() {
-    if(c == 185) {
-        return false;
-    }
+// function timedCount() {
+//     if(c == 185) {
+//         return false;
+//     }
 
-    var hours = parseInt ( c / 3600) % 24;
-    var minutes = parseInt( c / 60) % 60;
-    var seconds = c % 60;
-    var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
-    $('#timer').html(result);
+//     var hours = parseInt ( c / 3600) % 24;
+//     var minutes = parseInt( c / 60) % 60;
+//     var seconds = c % 60;
+//     var result = (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+//     $('#timer').html(result);
 
-    if(c == 0) {
-        displayScore();
-        $('#iTimeShow').html('Quiz Time Completed!');
-        $('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
-        c= 185;
-        $(document).find(".preButton").text("View Answer");
-        $(document).find(".nextButton").text("Play Again?");
-        quizOver = true;
-        return false;
-    }
+//     if(c == 0) {
+//         displayScore();
+//         $('#iTimeShow').html('Quiz Time Completed!');
+//         $('#timer').html("You scored: " + correctAnswers + " out of: " + questions.length);
+//         c= 185;
+//         $(document).find(".preButton").text("View Answer");
+//         $(document).find(".nextButton").text("Play Again?");
+//         quizOver = true;
+//         return false;
+//     }
 
-    c = c - 1;
-    t = setTimeout(function() {
-        timedCount();
-    },1000);
-}
+//     c = c - 1;
+//     t = setTimeout(function() {
+//         timedCount();
+//     },1000);
+// }
 
-function displayCurrentQuestion() {
-    if(c == 185) {
-        c = 180; timedCount();
-    }
+// function displayCurrentQuestion() {
+//     if(c == 185) {
+//         c = 180; timedCount();
+//     }
 
-    var question = questions[currentQuestion].question;
-    var questionClass = $(document).find(".quizContainer > .question");
-    var choiceList = $(document).find("quizContainer > .choiceList");
-    var numChoices = questions[currentQuestion].choices.length;
-    // Set the questionClass text to the current question
-    $(questionClass).text(question);
-    // Remove all current <li> elements (if any)
-    $(choiceList).find("li").remove();
-    var choice;
+//     var question = questions[currentQuestion].question;
+//     var questionClass = $(document).find(".quizContainer > .question");
+//     var choiceList = $(document).find("quizContainer > .choiceList");
+//     var numChoices = questions[currentQuestion].choices.length;
+//     // Set the questionClass text to the current question
+//     $(questionClass).text(question);
+//     // Remove all current <li> elements (if any)
+//     $(choiceList).find("li").remove();
+//     var choice;
 
-    for (i = 0; i < numChoices; i++)
+//     for (i = 0; i < numChoices; i++)
 
-    {
-        choice = questions[currentQuestion].choices[i];
+//     {
+//         choice = questions[currentQuestion].choices[i];
 
-        if(iSelectedAnswer[currentQuestion] == i) {
-            $('<li><input type="radio" class="radio-inline" checked="checked" value=' + i + ' name="dynradio" />' + ' ' + choice + '</li>').appendTo(choiceList);
-        } else {
-            $('<li><input type="radio" class="radio-inline" value=' + i + ' name="dynradio" />' + ' ' + choice + '</li>').appendTo(choiceList);
-        }
-    }
-}
+//         if(iSelectedAnswer[currentQuestion] == i) {
+//             $('<li><input type="radio" class="radio-inline" checked="checked" value=' + i + ' name="dynradio" />' + ' ' + choice + '</li>').appendTo(choiceList);
+//         } else {
+//             $('<li><input type="radio" class="radio-inline" value=' + i + ' name="dynradio" />' + ' ' + choice + '</li>').appendTo(choiceList);
+//         }
+//     }
+// }
 
-function resetQuiz() {
-    currentQuestion = 0;
-    correctAnswers = 0;
-    hideScore();
-}
+// function resetQuiz() {
+//     currentQuestion = 0;
+//     correctAnswers = 0;
+//     hideScore();
+// }
 
-function displayScore() {
-    $(document).find(".quizContainer > .result").text("You scored: " + correctAnswers + " out of: " + questions.length);
-    $(document).find(".quizContainer > .result").show();
-}
+// function displayScore() {
+//     $(document).find(".quizContainer > .result").text("You scored: " + correctAnswers + " out of: " + questions.length);
+//     $(document).find(".quizContainer > .result").show();
+// }
 
-function hideScore() {
-    $(document).find(".result").hide();
-}
+// function hideScore() {
+//     $(document).find(".result").hide();
+// }
 
-// This displays the current question AND the choices
-function viewResults()
-{
-    if(currentQuestion == 20) { currentQuestion = 0;return false; }
-    if(viewingAns == 1) {return false; }
+// // This displays the current question AND the choices
+// function viewResults()
+// {
+//     if(currentQuestion == 20) { currentQuestion = 0;return false; }
+//     if(viewingAns == 1) {return false; }
 
-    hideScore();
-        var question = questions[currentQuestion].question;
-        var questionClass = $(document).find(".quizContainer > .question");
-        var choiceList = $(document).find(".quizContainer > .choiceList");
-        var numChoices = questions[currentQuestion].choices.length;
-        // Set the questionClass text to the current question
-        $(questionCLass).text(question);
-        // Remove all current <li> elements (if any)
-        $(choiceList).find("li").remove();
-        var choice;
+//     hideScore();
+//         var question = questions[currentQuestion].question;
+//         var questionClass = $(document).find(".quizContainer > .question");
+//         var choiceList = $(document).find(".quizContainer > .choiceList");
+//         var numChoices = questions[currentQuestion].choices.length;
+//         // Set the questionClass text to the current question
+//         $(questionCLass).text(question);
+//         // Remove all current <li> elements (if any)
+//         $(choiceList).find("li").remove();
+//         var choice;
 
-    for (i = 0; i < numChoices; i++) {
+//     for (i = 0; i < numChoices; i++) {
 
-        choice = questions[currentQuestion] == i
+//         choice = questions[currentQuestion] == i
 
-    if(iSelectedAnswer[currentQuestion] == i) {
-            if(questions[currentQuestion].correctAnswer == i) {
-                $('<li style="border:2px solid green;margin-top:10px;"><input type="radio" class+"radio-inline" checked="checked"  value=' + i + ' name="dynradio" />' + ' ' + choice + '</li>').appendTo(choiceList);
-            } else {
-                $('<li style="border: 2px solid red;margin-top:10px;"><input type="radio" class="radio-inline" checked="checked"  value=' + i + ' name="dynradio" />' + ' ' + choice + '</li>').appendTo(choiceList);
-            }
-        } else {
-            if(questions[currentQuestion].correctAnswer == i) {
-                $('<li style="border:2px solid green;margin-top: 10px;"><input type="radio" class="radio-inline" value=' + i + ' name="dynradio" />' + ' ' + choice = '</li>').appendTo(choiceList);
-            } else {
-                $('<li><input type="radio" class="radio-inline" value=' + i + ' name="dynradio" />' + ' ' + choice + '</li>').appendTo(choiceList);
-            }
-        }
-        }
-    currentQuestion++;
+//     if(iSelectedAnswer[currentQuestion] == i) {
+//             if(questions[currentQuestion].correctAnswer == i) {
+//                 $('<li style="border:2px solid green;margin-top:10px;"><input type="radio" class+"radio-inline" checked="checked"  value=' + i + ' name="dynradio" />' + ' ' + choice + '</li>').appendTo(choiceList);
+//             } else {
+//                 $('<li style="border: 2px solid red;margin-top:10px;"><input type="radio" class="radio-inline" checked="checked"  value=' + i + ' name="dynradio" />' + ' ' + choice + '</li>').appendTo(choiceList);
+//             }
+//         } else {
+//             if(questions[currentQuestion].correctAnswer == i) {
+//                 $('<li style="border:2px solid green;margin-top: 10px;"><input type="radio" class="radio-inline" value=' + i + ' name="dynradio" />' + ' ' + choice = '</li>').appendTo(choiceList);
+//             } else {
+//                 $('<li><input type="radio" class="radio-inline" value=' + i + ' name="dynradio" />' + ' ' + choice + '</li>').appendTo(choiceList);
+//             }
+//         }
+//         }
+//     currentQuestion++;
 
-    setTimeout(function() {
-        viewResults();
-    },3000);
+//     setTimeout(function() {
+//         viewResults();
+//     },3000);
 
-}
+// }
 

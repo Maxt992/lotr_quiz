@@ -19,25 +19,53 @@
         </h1>
     </div> -->
 
-    <div class="gif-container">
-        <div class="center_text">
-            <a href="./highscores.html">View High Scores</a>
+    <div class="center_text">
+         <a href="./highscores.html">View High Scores</a>
+     </div>
+
+        
+
+    <div class="quizContainer center_gold" id="question-area">
+
+        <div class="container">
+            <div class=""score">
+                <span id="user-score">0</span>
+                <span id="total-score">/20</span>
+            </div>
         </div>
-        <div class="quizContainer center_gold">
-           <div id="quiz1" class="center_text">
+
+        <div id="question-text"></div>
+        <div class="options">
+            <button class="btn btn-option" id="opt1">A</button>
+            <button class="btn btn-option" id="opt2">B</button>
+            <button class="btn btn-option" id="opt3">C</button>
+            <button class="btn btn-option" id="opt4">D</button>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-restart" id="restart">Restart</button>
+            <button class="btn btn-prev" id=""prev">Previous</button>
+            <button class="btn btn-next" id=""next">Next</button>
+            <button class="btn btn-submit" id="submit">Submit</button>
+        </div>
+
+            <!-- <div class="center_text">
+
+                <h1>
+                    <strong>The Ultimate Lord of the Rings Quiz</strong>
+                </h1>
+
+           </div>
+           
+           <button class="startBtn">Start Quiz</button> -->
+    
+           
+        </div>
+
+        <div>
             <div style="color: red">
                 Timer: <span id="timer">0</span>
-            </div></span>
-                <h2><strong>The Ultimate Lord of the Rings Quiz</strong></h2>
-           </div>
-           <button class="startBtn">Start Quiz</button>
-    
-           <div class="question"></div>
-           <ul class="choiceList"></ul>
-           <div class="quizMessage"></div>
-           <!-- <div class="result"></div> -->
-           <!-- <button class="preButton">Previous Question</button>
-           <button class="nextButton">Next Question</button> -->
+            </div>
         </div>
     </div>
     <script src="/Assets/js/game.js"></script>
