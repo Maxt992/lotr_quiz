@@ -5,14 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Lord of the Rings Quiz</title>
+   
     <link rel="stylesheet" href="Assets/css/style.css">
 </head>
+
 <body>
-    <div>
-        <a href="./highscores.html">View High Scores</a>
-        <div>
-            Timer: <span id="timer">0</span>
+    <div class="gif-container">
+        <div class="center_text">
+            <a href="./highscores.html">View High Scores</a>
+            <div>
+                Timer: <span id="timer">0</span>
+            </div>
+        </div>
+        <div class="quizContainer center_gold">
+           <div id="quiz1" class="center_text">
+                <h4><span id="iTimeShow">Time Remaining: </span><br/><span id='timer' style="font-size:25px;"></span></h4>
+                <h2>The Ultimate Lord of the Rings Quiz</h2>
+           </div> 
+    
+           <div class="question"></div>
+           <ul class="choiceList"></ul>
+           <div class="quizMessage"></div>
+           <div class="result"></div>
+        <button class="preButton">Previous Question</button>
+           <button class="nextButton:">Next Question</button>
         </div>
     </div>
+    <script src="/Assets/js/game.js"></script>
 </body>
 </html>
