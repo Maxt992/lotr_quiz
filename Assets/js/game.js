@@ -18,7 +18,8 @@ var score = 0;
 
 // DECLARE 'questions' array
 
-let questions = [{
+const questions = [{
+    id: 0,
     question: "1: What is the name of the fictional setting in which The Lord of the Rings takes place?",
     answers: [
         {option:"Narnia", answer:false}, 
@@ -27,6 +28,7 @@ let questions = [{
         {option:"Westeros", answer:false},
     ]
 }, {
+    id: 1,
     question: "2: Who is entrusted with the quest to destroy The One Ring?",
     answers: [
         {option:"A Witcher, Geralt of Rivia", answer:false},
@@ -35,6 +37,7 @@ let questions = [{
         {option:"The Human Ranger, Minsc of Rasheman alongside his trusty hamster, Boo", answer:false}
     ]
 }, {
+    id: 2,
     question: "3: How many rings of power were made for the Elves, Dwarves, and Men?",
     answers: [
         {option:"Three for the Elves, Seven for Dwarves, and Nine for Men", answer:true},
@@ -43,6 +46,7 @@ let questions = [{
         {option:"One thousand for the army of Elven Warriors, Nineteen-Thousand for the Dwarven Warlords under The Misty Mountain, and the Race of Men were given nothing", answer:false}
     ]
 }, {
+    id: 3,
     question: "4: What is the name of the mountain where the Master Ring was made?",
     answers: [
         {option:"Mount Devious", answer:false},
@@ -51,6 +55,7 @@ let questions = [{
         {option:"Mount Doom", answer:true},
     ]
 }, {
+    id: 4,
     question: "5: What was the name of Sauron's Fortress in Mordor?",
     answers: [
         {option:"Minas Morgul", answer:false}, 
@@ -59,6 +64,7 @@ let questions = [{
         {option:"Cirith Ungol", answer:false}
     ]
 }, {
+    id: 5,
     question: "6: What is the name of the bridge that Gandalf destroys in the battle with the Balrog of Moria?",
     answers: [
         {option:"The Morgul Bridge", answer:false},
@@ -67,6 +73,7 @@ let questions = [{
         {option:"The Brandywine Bridge", answer:false}
     ]
 }, {
+    id: 6,
     question: "7: Who owned the Ring of Power until Bilbo Baggins picked it up in the cave?",
     answers: [
         {option:"The Witch-King of Angmar", answer:false},
@@ -75,6 +82,7 @@ let questions = [{
         {option:"Boromir of Gondor", answer:false}
     ]
 }, {
+    id: 7,
     question: "8: What was the name of the demonic spider that lived in the caves of Cirith Ungol?",
     answers: [
         {option:"Shelob", answer:true}, 
@@ -83,6 +91,7 @@ let questions = [{
         {option:"Chaos Witch Quelaag", answer:false}
     ]
 }, {
+    id: 8,
     question: "9: In 'The Lord of the Rings: The Return of the King', which army does Aragorn summon using the Sword of Elendil?",
     answers: [
         {option:"The Rohirrim", answer:false},
@@ -91,6 +100,7 @@ let questions = [{
         {option:"The Army of the Dead", answer:true}
     ]
 }, {
+    id: 9,
     question: "10: What does Gollum call the Ring of Power?",
     answers: [
         {option:"My Precious", answer:true}, 
@@ -99,6 +109,7 @@ let questions = [{
         {option:"Sally", answer:false}
     ]
 }, {
+    id: 10,
     question: "11: What group composed the Fellowship of the Ring?",
     answers: [
         {option:"Geralt of Rivia, Dandelion the bard, the sorceresses Triss Merigold and Yennefer of Vengerberg, and the dwarf Zoltan Chivay", answer:false}, 
@@ -107,6 +118,7 @@ let questions = [{
         {option:"Jon Snow of Winterfell, Tyrion Lannister, Gregor and Sandor 'The Hound' Clegane, Daenerys Targaryen, and Lord Eddard Stark", answer:false}
     ]
 }, {
+    id: 11,
     question: "12: What is the name of the reforged version of the 'sword that was broken'?",
     answers: [
         {option:"Sting, the Spider's Bane", answer:false}, 
@@ -115,6 +127,7 @@ let questions = [{
         {option:"Orcrist, the Goblin-Cleaver", answer:false}
     ]
 }, {
+    id: 12,
     question: "13: What does Aragorn say right before charging into the last battle in Mordor?",
     answers: [
         {option:"'DEATH!'", answer:false}, 
@@ -122,6 +135,7 @@ let questions = [{
         {option:"'I'll kill everyone one of you damned dirty orcs!'", answer:false}, {option:"'Elendil!'", answer:false}
     ]
 }, {
+    id: 13,
     question: "14: Who is Isildur's heir, also heir to the throne of Gondor, and known as 'Strider' and 'Dunadan'?",
     answers: [
         {option:"Boromir of Gondor", answer:false},
@@ -130,6 +144,7 @@ let questions = [{
         {option:"The humble student, Maxwell, on of Leland", answer:false}
     ]
 }, {
+    id: 14,
     question: "15: What are potatoes, and what are they good for?",
     answers: [
         {option:"Absolutely nothing", answer:false},
@@ -137,6 +152,7 @@ let questions = [{
         {option:"'PO-TA-TOES? Boil 'em, mash 'em, stick 'em in a stew. Lovely big golden chips with a nice piece of fried fish.", answers:true},
         {option:"A tuber, generally cooked until soft and prepared as a side dish", answer:false}]
 }, {
+    id: 15,
     question: "16: Which is NOT one of Gandalf's many nicknames?",
     answers: [
         {option:"The Grey Pilgrim", answer:false}, 
@@ -145,6 +161,7 @@ let questions = [{
         {option:"Flame of Udun", answer:true}
     ]
 }, {
+    id: 16,
     question: "17: What does the Elvish word 'Mellon' mean?",
     answers: [
         {option:"Friend", answer:true},
@@ -153,6 +170,7 @@ let questions = [{
         {option:"A measurement of distance, '...as the crow flies'", answer:false}
     ] 
 }, {
+    id: 17,
     question: "18: What unusual property does Frodo notice about the Ring?",
     answers: [
         {option:"It makes his ring finger swell up", answer:false}, 
@@ -161,6 +179,7 @@ let questions = [{
         {option:"It makes Samwise find him particularly attractive", answer:false}
     ]
 }, {
+    id: 18,
     question: "19: Where are they taking the Hobbits?",
     answers: [
         {option:"Fangorn Forest", answer:false}, 
@@ -169,6 +188,7 @@ let questions = [{
         {option:"Rohan", answer:false}
     ]
 }, {
+    id: 19,
     question: "20: What do the Uruk-Hai of Isengard bear upon their helms?",
     answers: [
         {option:"The White Hand of Saruman", answer:true}, 
@@ -178,163 +198,247 @@ let questions = [{
     ]
 }]
 
+
 restartBtn.addEventListener('click',restart);
 prevBtn.addEventListener('click',prev);
 nextBtn.addEventListener('click',next);
 submitBtn.addEventListener('click',submit);
 
+var start = true;
+
+function iterate(id) {
+    
+    // Getting the result to display section
+    var result = document.getElementsByClassName('result');
+    result[0].innerText = "";
+
+    // Getting the question
+    const question = document.getElementById("question");
+    
+    // Setting the question text
+    question.innerText = question[id].q;
+
+    // Getting the options
+    const opt1 = document.getElementById("opt1");
+    const opt2 = document.getElementById("opt2");
+    const opt3 = document.getElementById("opt3");
+    const opt4 = document.getElementById("opt4");
+
+    // Providing option text
+    opt1.innerText = questions[id].a[0].text;
+    opt2.innerText = questions[id].a[1].text;
+    opt3.innerText = questions[id].a[2].text;
+    opt4.innerText = questions[id].a[3].text;
+
+    // Providing the true or false value to the options
+    opt1.value = questions[id].a[0].answer;
+    opt2.value = questions[id].a[1].answer;
+    opt3.value = questions[id].a[2].answer;
+    opt4.value = questions[id].a[3].answer;
+
+    var selected = "";
+
+    // Show selection for opt1
+    opt1.addEventListener("click", () => {
+        opt1.style.backgroundColor = "lightgoldenrodyellow";
+        opt2.style.backgroundColor = "#ef9614";
+        opt3.style.backgroundColor = "#ef9614";
+        opt4.style.backgroundColor = "#ef9614";
+        selected = opt1.value;
+    })
+
+    // Show selection for opt2
+    opt2.addEventListener("click", () => {
+        opt1.style.backgroundColor = "#ef9614";
+        opt2.style.backgroundColor = "lightgoldenrodyellow";
+        opt3.style.backgroundColor = "#ef9614";
+        opt4.style.backgroundColor = "#ef9614";
+        selected = opt2.value;
+    })
+
+    opt3.addEventListener("click", () => {
+        opt1.style.backgroundColor = "#ef9614";
+        opt2.style.backgroundColor = "#ef9614";
+        opt3.style.backgroundColor = "lightgoldenrodyellow";
+        opt4.style.backgroundColor = "#ef9614";
+        selected = opt3.value;
+    })
+
+    opt4.addEventListener("click", () => {
+        opt1.style.backgroundColor = "#ef9614";
+        opt2.style.backgroundColor = "#ef9614";
+        opt3.style.backgroundColor = "#ef9614";
+        opt4.style.backgroundColor = "lightgoldenrodyellow";
+        selected = opt4.value;
+    })
+
+    // Grabbing the evaluate button
+    const submit = document.getElementsByClassName("submit");
+
+    // Evaluate method
+    submit[0].addEventListener("click", () => {
+        if (selected == "true");
+            result[0].innerHTML = "Correct";
+            result[0].style.color = "green";
+        } else {
+            result[0].innerHTML = "Incorrect";
+            result[0].style.color = "red";
+        })
+    }
+}
+
 // Function 'startGame'
 
-function beginQuiz() {
+// function beginQuiz() {
 
-    currentQuestion = 0;
-    questionText.innerHTML = questions[currentQuestion].question;
-    trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
-    trueBtn.onclick = () => {
-        let ano= 0;
-        if (questions[currentQuestion].answers[ano].answer){
-            if(score<20){
-                score++;
-            }
-        }
-        userScore.innerHTML = score;
-        if(currentQuestion<2){
-            next();
-        }
-    }
-    falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
-    falseBtn.onclick = () => {
-        let ano= 1;
-        if(questions[currentQuestion].answers[ano].answer){
-            if(score<20){
-                next();
-            }
-        }
-    }    
-    prevBtn.classList.add('hide');
-}
+//     currentQuestion = 0;
+//     questionText.innerHTML = questions[currentQuestion].question;
+//     trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
+//     trueBtn.onclick = () => {
+//         let ano= 0;
+//         if (questions[currentQuestion].answers[ano].answer){
+//             if(score<20){
+//                 score++;
+//             }
+//         }
+//         userScore.innerHTML = score;
+//         if(currentQuestion<2){
+//             next();
+//         }
+//     }
+//     falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
+//     falseBtn.onclick = () => {
+//         let ano= 1;
+//         if(questions[currentQuestion].answers[ano].answer){
+//             if(score<20){
+//                 next();
+//             }
+//         }
+//     }    
+//     prevBtn.classList.add('hide');
+// }
 
-beginQuiz();
+// beginQuiz();
 
-function restart() {
-    currentQuestion = 0;
-    prevBtn.classList.remove('hide');
-    nextBtn.classList.remove('hide');
-    submitBtn.classList.remove('hide');
-    aBtn.classList.remove('hide');
-    bBtn.classList.remove('hide'); 
-    cBtn.classList.remove('hide');
-    dBtn.classList.remove('hide');
-    score = 0;
-    userScore.innerHTML = score;
-    beginQuiz();
-} 
+// function restart() {
+//     currentQuestion = 0;
+//     prevBtn.classList.remove('hide');
+//     nextBtn.classList.remove('hide');
+//     submitBtn.classList.remove('hide');
+//     aBtn.classList.remove('hide');
+//     bBtn.classList.remove('hide'); 
+//     cBtn.classList.remove('hide');
+//     dBtn.classList.remove('hide');
+//     score = 0;
+//     userScore.innerHTML = score;
+//     beginQuiz();
+// } 
     
-function next(){
-    currentQuestion++;
-    if(currentQuestion>=2){
-        nextBtn.classList.add('hide');
-        prevBtn.classList.remove('hide');
-    }
-    questionText.innerHTML = questions[currentQuestion].question;
-    trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
-    trueBtn.onclick = () => {
-        let ano= 0;
-        if(questions[currentQuestion].answers[ano].answers){
-            if(score<20){
-                score++;
-            }
-        }
-        userScore.innerHTML = score;
-        if(currentQuestion<2){
-            next();
-        }
-    }
-    falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
-    falseBtn.onclick = () => {
-        let ano=1;
-        if(questions[currentQuestion].answers[ano].answer){
-            if(score<20){
-                score++;
-            }
-        }
-        userScore.innerHTML = score;
-        if(currentQuestion<2){
-            next();
-        }
-    }
-    prev.classList.remove('hide');
-}
+// function next(){
+//     currentQuestion++;
+//     if(currentQuestion>=2){
+//         nextBtn.classList.add('hide');
+//         prevBtn.classList.remove('hide');
+//     }
+//     questionText.innerHTML = questions[currentQuestion].question;
+//     trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
+//     trueBtn.onclick = () => {
+//         let ano= 0;
+//         if(questions[currentQuestion].answers[ano].answers){
+//             if(score<20){
+//                 score++;
+//             }
+//         }
+//         userScore.innerHTML = score;
+//         if(currentQuestion<2){
+//             next();
+//         }
+//     }
+//     falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
+//     falseBtn.onclick = () => {
+//         let ano=1;
+//         if(questions[currentQuestion].answers[ano].answer){
+//             if(score<20){
+//                 score++;
+//             }
+//         }
+//         userScore.innerHTML = score;
+//         if(currentQuestion<2){
+//             next();
+//         }
+//     }
+//     prev.classList.remove('hide');
+// }
 
-function prev(){
-    currentQuestion--;
-    if(currentQuestion<=2){
-        nextBtn.classList.add('hide');
-        prevBtn.classList.remove('hide');
-    }
-    questionText.innerHTML = questions[currentQuestion].question;
-    trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
-    trueBtn.onclick = () => {
-        let ano= 0;
-        if(questions[currentQuestion].answers[ano].answers){
-            if(score<20){
-                score++;
-            }
-        }
-        userScore.innerHTML = score;
-        if(currentQuestion<2){
-            next();
-        }
-    }
-    falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
-    falseBtn.onclick = () => {
-        let ano=1;
-        if(questions[currentQuestion].answers[ano].answer){
-            if(score<20){
-                score++;
-            }
-        }
-        userScore.innerHTML = score;
-        if(currentQuestion<2){
-            next();
-        }
-    }
-    next.classList.remove('hide');
-}
+// function prev(){
+//     currentQuestion--;
+//     if(currentQuestion<=2){
+//         nextBtn.classList.add('hide');
+//         prevBtn.classList.remove('hide');
+//     }
+//     questionText.innerHTML = questions[currentQuestion].question;
+//     trueBtn.innerHTML = questions[currentQuestion].answers[0].option;
+//     trueBtn.onclick = () => {
+//         let ano= 0;
+//         if(questions[currentQuestion].answers[ano].answers){
+//             if(score<20){
+//                 score++;
+//             }
+//         }
+//         userScore.innerHTML = score;
+//         if(currentQuestion<2){
+//             next();
+//         }
+//     }
+//     falseBtn.innerHTML = questions[currentQuestion].answers[1].option;
+//     falseBtn.onclick = () => {
+//         let ano=1;
+//         if(questions[currentQuestion].answers[ano].answer){
+//             if(score<20){
+//                 score++;
+//             }
+//         }
+//         userScore.innerHTML = score;
+//         if(currentQuestion<2){
+//             next();
+//         }
+//     }
+//     next.classList.remove('hide');
+// }
 
-function submit() {
-    prevBtn.classList.add('hide');
-    nextBtn.classList .add('hide');
-    submitBtn.classList.add('hide');
-    trueBtn.classList.add('hide');
-    falseBtn.classList.add('hide');
-    questionText.innerHTML = "Let us see whether or not you shall pass...";
-}
-// Function 'answerQuestion'
+// function submit() {
+//     prevBtn.classList.add('hide');
+//     nextBtn.classList .add('hide');
+//     submitBtn.classList.add('hide');
+//     trueBtn.classList.add('hide');
+//     falseBtn.classList.add('hide');
+//     questionText.innerHTML = "Let us see whether or not you shall pass...";
+// }
+// // Function 'answerQuestion'
 
-    // Check if the selected answer is correct
+//     // Check if the selected answer is correct
 
-        // IF the answer is wrong
+//         // IF the answer is wrong
 
-            // THEN we need to subtract from 'countdown'
+//             // THEN we need to subtract from 'countdown'
 
-            // Optional: DISPLAY "right" or "wrong"
+//             // Optional: DISPLAY "right" or "wrong"
 
-        // Display the next question
+//         // Display the next question
 
-// Function 'displayCurrentQuestion'
-
-
+// // Function 'displayCurrentQuestion'
 
 
 
 
-// DECLARE 'timer' number
-let totalSeconds = 250;
-let timeRemaining = totalSeconds;
-let secondsElapsed = 0;
-// let currentQuestion = 0;
-let progress = 0;
+
+
+// // DECLARE 'timer' number
+// let totalSeconds = 250;
+// let timeRemaining = totalSeconds;
+// let secondsElapsed = 0;
+// // let currentQuestion = 0;
+// let progress = 0;
 
 
 

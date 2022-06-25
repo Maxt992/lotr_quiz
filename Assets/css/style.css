@@ -64,6 +64,7 @@ h1 {
 #timer {
     color: red;
     font-size: 50pt;
+    padding-left: 15px;
 }
 
 .center_text {
@@ -118,6 +119,16 @@ h1 {
     flex-direction: column;
 }
 
+.question-container {
+    margin: 10px;
+    padding: 5px;
+    width: 70vw;
+    height: 30vh;
+    background-color: azure;
+    font-size: x-large;
+    text-align: center;
+}
+
 .btn {
     font-size: large;
     font-weight: bold;
@@ -156,7 +167,7 @@ h1 {
 
 
 
-.quizGame {
+/* .quizGame {
     margin-top: 125px;
     background-color: gold;
     opacity: 65%;
@@ -251,7 +262,7 @@ p {
     padding-top: 5px;
 	float:left;
 	left:30%;
-}
+} */
 
 /* .question {
     font-family:'Century', serif;
