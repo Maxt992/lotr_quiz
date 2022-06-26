@@ -18,7 +18,7 @@ Maxwell Turner
 ​
 ## Deployed Page
 ​
-
+https://maxt992.github.io/lotr_quiz/
 ​
 ## GitHub Repo
 ​
