@@ -9,68 +9,84 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bilbo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Assets/css/style.css">
+    <script src="https://kit.fontawesome.com/5ee50b5e73.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    <!-- Start Quiz Button -->
+    <div class="start_btn"><button>Start Quiz</button></div>
 
-    <!-- <div class="intro">
-        <h1 class="logo-header">
-            <span class="logo">One </span><span class="logo">does </span><span class="logo">not </span><span class="logo">simply </span><span class="logo">walk </span><span class="logo">into </span><span class="logo">a </span><span class="logo">Lord </span><span class="logo">of </span><span class="logo">the </span><span class="logo">Rings </span><span class="logo">quiz</span><span class="logo">.</span><span class="logo">.</span><span class="logo">.</span>
-        </h1>
-    </div> -->
-
-    <div class="center_text">
-         <a href="./highscores.html">View High Scores</a>
-     </div>
-
-        
-
-    <div class="quizContainer center_gold" id="question-area">
-
-        <div class="container">
-            <div class=""score">
-                <span id="user-score">0</span>
-                <span id="total-score">/20</span>
-            </div>
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info_title">
+            <span>Some Rules of this Quiz</span>
         </div>
-
-        <div class="question-container" id="question-text">
-            Question goes here.
+        <div class="info_list">
+            <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+            <div class="info">2. Once you select your answer, you can't reselect.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
         </div>
-        
-        <div class="options">
-            <button class="btn btn-option" id="opt1">A</button>
-            <button class="btn btn-option" id="opt2">B</button>
-            <button class="btn btn-option" id="opt3">C</button>
-            <button class="btn btn-option" id="opt4">D</button>
-        </div>
-
-        <div class="controls">
-            <button class="btn btn-restart" id="restart">Restart</button>
-            <button class="btn btn-prev" id=""prev">Previous</button>
-            <button class="btn btn-next" id=""next">Next</button>
-            <button class="btn btn-submit" id="submit">Submit</button>
-        </div>
-
-            <!-- <div class="center_text">
-
-                <h1>
-                    <strong>The Ultimate Lord of the Rings Quiz</strong>
-                </h1>
-
-           </div>
-           
-           <button class="startBtn">Start Quiz</button> -->
-    
-           
-        </div>
-
-        <div>
-            <div style="color: red">
-                Timer: <span id="timer">0</span>
-            </div>
+        <div class="buttons">
+            <button class="quit">Exit Quiz</button>
+            <button class="restart">Restart Quiz</button>
         </div>
     </div>
+
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">The Ultimate Lord of the Rings Quiz</div>
+            <div class="timer">
+                <div class="time_text">Time Left</div>
+                <div class="timer_sec">15</div>
+            </div>
+        </header>
+        <section>
+            <div class="que_text">
+                <span>1: What is the name of the fictional setting in which The Lord of the Rings takes place?</span>
+            </div>
+            <div class="option_list">
+                <div class="option">
+                    <span>Narnia</span>
+                    <div class="icon tick"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="option">
+                    <span>Middle Earth</span>
+                    <div class="icon cross"><i class="fas fa-times"></i></div>
+                </div><div class="option">
+                    <span>Hogwarts</span>
+                </div><div class="option">
+                    <span>Westeros</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Box Footer -->
+        <footer>
+            <div class="total_que">
+                <span><p>2</p>of<p>20</p>Questions</span>
+            </div>
+            <button class="next_btn">Next Question</button>
+        </footer>
+    </div>
+
+    <!-- Result Box -->
+    <div class="result_box">
+        <i class="fas fa-crown"></i>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <span>and sorry, you got only <p>2</p> out of <p>20</p></span>
+        </div>
+        <div class="buttons">
+            <button class="restart">Replay Quiz</button>
+            <button class="quit">Quit Quiz</button>
+    </div>
+    </div>
+  
+    <script src="/Assets/js/questions.js"></script>        
     <script src="/Assets/js/game.js"></script>
+    
 </body>
 </html>
