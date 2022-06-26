@@ -2,7 +2,7 @@
 
 let questions = [{
     numb: 1,
-    question: "1: What is the name of the fictional setting in which The Lord of the Rings takes place?",
+    question: "What is the name of the fictional setting in which The Lord of the Rings takes place?",
     answer: "Middle Earth",
     options: [
         "Narnia",
@@ -10,9 +10,18 @@ let questions = [{
         "Hogwarts",
         "Westeros"
     ]
+},
+// next_btn function skips over 2nd question. Strange error. Fixed by duplicating second question, and making old second question an empty piece of data.
+{
+    numb: 0,
+    question: 0 ,
+    answer: 0,
+    options: [
+        
+    ]
 }, {
     numb: 2,
-    question: "2: Who is entrusted with the quest to destroy The One Ring?",
+    question: "Who is entrusted with the quest to destroy The One Ring?",
     answer: "A Hobbit, Frodo Baggins of the Shire",
     options: [
         "A Witcher, Geralt of Rivia",
@@ -22,7 +31,7 @@ let questions = [{
     ]
 }, {
     numb: 3,
-    question: "3: How many rings of power were made for the Elves, Dwarves, and Men?",
+    question: "How many rings of power were made for the Elves, Dwarves, and Men?",
     answer: "Three for the Elves, Seven for Dwarves, and Nine for Men",
     options: [
         "Three for the Elves, Seven for Dwarves, and Nine for Men",
@@ -32,7 +41,7 @@ let questions = [{
     ]
 }, {
     numb: 4,
-    question: "4: What is the name of the mountain where the Master Ring was made?",
+    question: "What is the name of the mountain where the Master Ring was made?",
     answer: "Mount Doom",
     options: [
         "Mount Devious", 
@@ -42,7 +51,7 @@ let questions = [{
     ]
 }, {
     numb: 5,
-    question: "5: What was the name of Sauron's Fortress in Mordor?",
+    question: "What was the name of Sauron's Fortress in Mordor?",
     answer: "Barad-dûr",
     options: [
         "Minas Morgul",  
@@ -52,7 +61,7 @@ let questions = [{
     ]
 }, {
     numb: 6,
-    question: "6: What is the name of the bridge that Gandalf destroys in the battle with the Balrog of Moria?",
+    question: "What is the name of the bridge that Gandalf destroys in the battle with the Balrog of Moria?",
     answer: "The Morgul Bridge",
     options: [
         "The Morgul Bridge", 
@@ -62,7 +71,7 @@ let questions = [{
     ]
 }, {
     numb: 7,
-    question: "7: Who owned the Ring of Power until Bilbo Baggins picked it up in the cave?",
+    question: "Who owned the Ring of Power until Bilbo Baggins picked it up in the cave?",
     answer: "Gollum/Sméagol",
     options: [
         "The Witch-King of Angmar",
@@ -72,7 +81,7 @@ let questions = [{
     ]
 }, {
     numb: 8,
-    question: "8: What was the name of the demonic spider that lived in the caves of Cirith Ungol?",
+    question: "What was the name of the demonic spider that lived in the caves of Cirith Ungol?",
     answer: "Shelob",
     options: [
         "Shelob", 
@@ -82,7 +91,7 @@ let questions = [{
     ]
 }, {
     numb: 9,
-    question: "9: In 'The Lord of the Rings: The Return of the King', which army does Aragorn summon using the Sword of Elendil?",
+    question: "In 'The Lord of the Rings: The Return of the King', which army does Aragorn summon using the Sword of Elendil?",
     answer: "The Army of the Dead",
     options: [
         "The Rohirrim", 
@@ -92,7 +101,7 @@ let questions = [{
     ]
 }, {
     numb: 10,
-    question: "10: What does Gollum call the Ring of Power?",
+    question: "What does Gollum call the Ring of Power?",
     answer: "My Precious", 
     options: [
         "My Precious", 
@@ -102,7 +111,7 @@ let questions = [{
     ]
 }, {
     numb: 11,
-    question: "11: What group composed the Fellowship of the Ring?",
+    question: "What group composed the Fellowship of the Ring?",
     answer: "Frodo Baggins of the Shire, Samwise Gamgee, Meridoc Brandybuck, Peregrin Took, the ranger Aragorn, Boromir of Gondor, Legolas of the Woodland Realm, the dwarf Gimli, and Gandalf the Grey", 
     options: [
         "Geralt of Rivia, Dandelion the bard, the sorceresses Triss Merigold and Yennefer of Vengerberg, and the dwarf Zoltan Chivay",
@@ -112,7 +121,7 @@ let questions = [{
     ]
 }, {
     numb: 12,
-    question: "12: What is the name of the reforged version of the 'sword that was broken'?",
+    question: "What is the name of the reforged version of the 'sword that was broken'?",
     answer: "Andúril, the Flame of the West",
     options: [
         "Sting, the Spider's Bane",
@@ -122,7 +131,7 @@ let questions = [{
     ]
 }, {
     numb: 13,
-    question: "13: What does Aragorn say right before charging into the last battle in Mordor?",
+    question: "What does Aragorn say right before charging into the last battle in Mordor?",
     answer: "'For Frodo!'",
     options: [
         "'DEATH!'",
@@ -132,7 +141,7 @@ let questions = [{
     ]
 }, {
     numb: 14,
-    question: "14: Who is Isildur's heir, also heir to the throne of Gondor, and known as 'Strider' and 'Dunadan'?",
+    question: "Who is Isildur's heir, also heir to the throne of Gondor, and known as 'Strider' and 'Dunadan'?",
     answer: "Aragorn, son of Arathorn",
     options: [
         "Boromir of Gondor",
@@ -142,7 +151,7 @@ let questions = [{
     ]
 }, {
     numb: 15,
-    question: "15: What are potatoes, and what are they good for?",
+    question: "What are potatoes, and what are they good for?",
     answer: "'PO-TA-TOES? Boil 'em, mash 'em, stick 'em in a stew. Lovely big golden chips with a nice piece of fried fish.",
     options: [
         "Absolutely nothing",
@@ -152,7 +161,7 @@ let questions = [{
     ]
 }, {
     numb: 16,
-    question: "16: Which is NOT one of Gandalf's many nicknames?",
+    question: "Which is NOT one of Gandalf's many nicknames?",
     answer: "Flame of Udun",
     options: [
         "The Grey Pilgrim", 
@@ -162,7 +171,7 @@ let questions = [{
     ]
 }, {
     numb: 17,
-    question: "17: What does the Elvish word 'Mellon' mean?",
+    question: "What does the Elvish word 'Mellon' mean?",
     answer: "Friend",
     options: [
         "Friend",
@@ -172,7 +181,7 @@ let questions = [{
     ] 
 }, {
     numb: 18,
-    question: "18: What unusual property does Frodo notice about the Ring?",
+    question: "What unusual property does Frodo notice about the Ring?",
     answer: "It grows heavier",
     options: [
         "It makes his ring finger swell up",
@@ -182,7 +191,7 @@ let questions = [{
     ]
 }, {
     numb: 19,
-    question: "19: Where are they taking the Hobbits?",
+    question: "Where are they taking the Hobbits?",
     answer: "Isengard",
     options: [
         "Fangorn Forest",
@@ -192,7 +201,7 @@ let questions = [{
     ]
 }, {
     numb: 20,
-    question: "20: What do the Uruk-Hai of Isengard bear upon their helms?",
+    question: "What do the Uruk-Hai of Isengard bear upon their helms?",
     answer: "The White Hand of Saruman",
     options: [
         "The White Hand of Saruman",
