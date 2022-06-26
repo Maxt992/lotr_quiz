@@ -64,6 +64,7 @@ maxt992@gmail.com
 
 - UW Coding Bootcamp Team
 - Anthony Brown
+- Kim Moran; for Readme layout
 - CodingNepal; for much formatting (https://www.youtube.com/c/CodingNepal) 
 - GeeksforGeeks (https://www.geeksforgeeks.org/how-to-create-a-simple-javascript-quiz/)
 - Boopalan (https://codepen.io/boopalan002/pen/yKZVGa)
