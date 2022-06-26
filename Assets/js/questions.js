@@ -183,12 +183,12 @@ let questions = [{
 }, {
     numb: 19,
     question: "Where are they taking the Hobbits?",
-    answer: "Isengard",
+    answer: "To Isengard",
     options: [
-        "Fangorn Forest",
-        "The Lands Between",
-        "Isengard",
-        "Rohan"
+        "To Fangorn Forest",
+        "To The Lands Between",
+        "To Isengard",
+        "To Rohan"
     ]
 }, {
     numb: 20,
