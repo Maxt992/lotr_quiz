@@ -10,15 +10,6 @@ let questions = [{
         "Hogwarts",
         "Westeros"
     ]
-},
-// next_btn function skips over 2nd question. Strange error. Fixed by duplicating second question, and making old second question an empty piece of data.
-{
-    numb: 0,
-    question: 0 ,
-    answer: 0,
-    options: [
-        
-    ]
 }, {
     numb: 2,
     question: "Who is entrusted with the quest to destroy The One Ring?",
@@ -62,7 +53,7 @@ let questions = [{
 }, {
     numb: 6,
     question: "What is the name of the bridge that Gandalf destroys in the battle with the Balrog of Moria?",
-    answer: "The Morgul Bridge",
+    answer: "The Bridge of Khazad-dûm",
     options: [
         "The Morgul Bridge", 
         "Tharbad",
