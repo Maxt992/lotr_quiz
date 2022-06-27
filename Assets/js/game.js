@@ -109,6 +109,7 @@ function showQuestions(index) {
 let tickIcon = '<div class="icon tick"><i class="fas fa-check"></i></div>';
 let crossIcon = '<div class="icon cross"><i class="fas fa-times"></i></div>'; 
 
+
 function optionSelected(answer) {
     clearInterval(counter);
     clearInterval(counterLine);
