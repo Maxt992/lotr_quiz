@@ -1,8 +1,3 @@
-APPLICATION IS CURRENTLY BROKEN, LOOKING FOR FIX
-
-
-
-
 # Ultimate Lord of the Rings Quiz!
 ​
 ## Table of Contents
